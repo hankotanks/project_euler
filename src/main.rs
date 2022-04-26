@@ -10,11 +10,18 @@ fn main() {
      */
 
     /*
-    //println!("euler #6: {}", first::euler6());
-    //println!("euler #7: {}", first::euler7());
-    //println!("euler #8: {}", first::euler8());
-    //println!("euler #9: {}", first::euler9());
+    println!("euler #6: {}", first::euler6());
+    println!("euler #7: {}", first::euler7());
+    println!("euler #8: {}", first::euler8());
+    println!("euler #9: {}", first::euler9());
      */
 
+    /*
     println!("euler #10: {}", first::euler10());
+    println!("euler #11: {}", first::euler11());
+    println!("euler #12: {}", first::euler12());
+    println!("euler #13: {}", first::euler13());
+     */
+
+    println!("euler #14: {}", first::euler14());
 }
