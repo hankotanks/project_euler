@@ -1,5 +1,3 @@
-use uint::construct_uint;
-
 pub(crate) fn euler1() -> u32 {
     let mut sum = 0u32;
     for i in 0..1000 {
@@ -288,10 +286,6 @@ fn find_factors(num: usize) -> Vec<usize> {
 }
 
 pub(crate) fn euler13() -> String {
-    construct_uint! {
-	    pub struct U512(8);
-    }
-
     let numbers = {
         "37107287533902102798797998220837590246510135740250
         46376937677490009712648124896970078050417018260538
@@ -461,4 +455,48 @@ pub(crate) fn euler14() -> u32 {
     }
 
     starting
+}
+
+pub(crate) fn euler15() -> u64 {
+    let s = 20u64;
+
+    ((s + 1)..=(2 * s)).fold(1, |p: u64, v: u64| p * v / (v - s))
+}
+
+pub(crate) fn euler16() -> u32 {
+    let mut n = vec!['1'];
+
+    let mut carry = 0;
+    for _ in 0..1000 {
+        let mut current: Vec<char> = Vec::new();
+        n.iter().for_each(|ch| {
+            let mut d = ch.to_digit(10).unwrap();
+            d *= 2;
+            d += carry;
+            carry = d / 10;
+            d %= 10;
+
+            let d = d as u8 + 48u8;
+            let d = d as char;
+
+            current.push(d);
+        } );
+
+        if carry > 0 {
+            current.push(((carry % 10) as u8 + 48u8) as char);
+
+            loop {
+                carry = carry / 10;
+                if carry == 0 {
+                    break;
+                }
+
+                current.push(((carry % 10) as u8 + 48u8) as char);
+            }
+        }
+
+        n = current;
+    }
+
+    (n.iter().map(|ch| ch.to_digit(10).unwrap()).collect::<Vec<u32>>()).iter().sum()
 }

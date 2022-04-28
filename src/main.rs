@@ -23,5 +23,7 @@ fn main() {
     println!("euler #13: {}", first::euler13());
      */
 
-    println!("euler #14: {}", first::euler14());
+    //println!("euler #14: {}", first::euler14());
+    //println!("euler #15: {}", first::euler15());
+    println!("euler #16: {}", first::euler16());
 }
